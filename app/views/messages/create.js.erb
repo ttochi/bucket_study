@@ -1,0 +1,4 @@
+var messages = $('#messages');
+
+$('#message_form').find('input.content').val('');
+messages.append('<%= j render @message %>');

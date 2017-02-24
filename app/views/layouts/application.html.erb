@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NewStudy</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= yield(:js_css) %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navigation">
+    <%= link_to 'TTochi Chat App', root_path, class: 'home' %>
+    <% if user_signed_in? %>
+        <%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: 'session' %>
+    <% else %>
+        <%= link_to '로그인', new_user_session_path, class: 'session' %>
+        <%= link_to '가입', new_user_registration_path, class: 'session' %>
+    <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
+
+<body>

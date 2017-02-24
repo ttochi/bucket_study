@@ -1,0 +1,14 @@
+<h1><%= @chat_room.title %></h1>
+
+<div id="messages">
+    <%= render @chat_room.messages %>
+</div>
+
+<div id="message_form">
+    <div class="my_nick"><%= current_user.nickname %></div>
+    <%= form_for Message.new, remote: true do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.text_field :content, placeholder: '채팅을 하자!' %>
+        <%= f.submit :submit, value: '확인', id: 'submit' %>
+    <% end %>
+</div>
